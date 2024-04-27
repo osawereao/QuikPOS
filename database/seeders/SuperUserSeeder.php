@@ -9,24 +9,24 @@ use Spatie\Permission\Models\Role;
 
 class SuperUserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        $user = User::create([
-            'name' => 'Administrator',
-            'email' => 'super.admin@test.com',
-            'password' => Hash::make(12345678),
-            'is_active' => 1
-        ]);
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		$user = User::create([
+			'name' => 'Guardian',
+			'email' => 'guardian@quikpos.co',
+			'password' => Hash::make('SuperAO24#'),
+			'is_active' => 1
+		]);
 
-        $superAdmin = Role::create([
-            'name' => 'Super Admin'
-        ]);
+		$superAdmin = Role::create([
+			'name' => 'Super Admin'
+		]);
 
-        $user->assignRole($superAdmin);
-    }
+		$user->assignRole($superAdmin);
+	}
 }
